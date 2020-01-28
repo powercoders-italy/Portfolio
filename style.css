@@ -1,0 +1,27 @@
+h1,
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+#first-contact {
+  background-color: pink;
+  color: green;
+}
+
+.colored {
+  color: #0000ff;
+}
+
+div:before {
+  content: "Before";
+}
+
+div > p {
+  background-color: green;
+}
+
+h1:hover {
+  color: red;
+  cursor: pointer;
+}
