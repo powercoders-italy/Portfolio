@@ -1,7 +1,32 @@
+body {
+  background-color: lightblue;
+}
+
+img {
+  height: 10em;
+}
+
 h1,
 h2 {
   font-weight: normal;
   text-transform: uppercase;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.shout {
+  text-transform: uppercase;
+}
+
+#bulbasaur {
+  background-color: black;
+  color: lightcyan;
+}
+
+#bulbasaur > :visited {
+  color: lightcyan;
 }
 
 #first-contact {
@@ -24,4 +49,8 @@ div > p {
 h1:hover {
   color: red;
   cursor: pointer;
+}
+
+#hello {
+  padding: 20px;
 }

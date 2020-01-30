@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+.table {
+  display: table;
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: normal;
+  color: cornflowerblue;
+}
+
+ul {
+  padding-inline-start: 12px;
+  list-style-type: square;
+}
+
+#profile {
+  width: 100px;
+}
+
+#absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
