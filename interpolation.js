@@ -33,7 +33,7 @@ const country = 'Italy'
 
 const address = streetName + ', ' + civicNumber + '\n' + zipCode + ' ' + city + ' (' + province + ')\n' + country
 
-console.log(myAddress + '\n\n' + address)
+// console.log(myAddress + '\n\n' + address)
 
 // let admin;
 // let name = "John";
@@ -47,7 +47,7 @@ const newAddress = `${streetName}, ${civicNumber}
 ${zipCode} ${city} (${province})
 ${country}`
 
-console.log(newAddress)
+// console.log(newAddress)
 
 // build your own CV:
 // your CV should have your work experience, your studies,
