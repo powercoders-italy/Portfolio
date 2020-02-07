@@ -122,30 +122,93 @@
 
 */
 
-const ROWS = 3;
-const COLUMNS = 7;
-const PATTERN = '*';
+// const ROWS = 3;
+// const COLUMNS = 7;
+// const PATTERN = '*';
 
-let rectangle = '';
-// loops over rows
-for (let i = 0; i < ROWS; i++) {
-  let row = "";
-  // loops over columns
-  for (let j = 0; j < COLUMNS; j++) {
-    row += PATTERN;
-  }
-  // appends the newly created row to the rectangle
-  if (i < ROWS - 1) {
-    rectangle += row + '\n';
-  } else {
-    rectangle += row;
-  }
-}
-console.log(rectangle);
+// let rectangle = '';
+// // loops over rows
+// for (let i = 0; i < ROWS; i++) {
+//   let row = "";
+//   // loops over columns
+//   for (let j = 0; j < COLUMNS; j++) {
+//     row += PATTERN;
+//   }
+//   // appends the newly created row to the rectangle
+//   if (i < ROWS - 1) {
+//     rectangle += row + '\n';
+//   } else {
+//     rectangle += row;
+//   }
+// }
+// console.log(rectangle);
+
+/*
+Table for 1:   1   2   3   4   5   6   7   8   9  10
+Table for 2:   2   4   6   8  10  12  14  16  18  20
+Table for 3:   3   6   9  12  15  18  21  24  27  30
+...
+Table for 10: 10  20  30  40  50  60  70  80  90 100
+...
+*/
 
 
 /*
-1 2 3 4 5 6 7 8 9 10
-2 4 6 8 10 12 14 16 18 20
-3 6 9 12 15 18 21 24 27 30
+*****
+*****
+*****
 */
+
+// const ROWS = 3;
+// const COLUMNS = 5;
+
+// for (let i = 0; i < ROWS; i++) {
+
+//   // START: print a single row
+//   let row = '';
+//   for (let j = 0; j < COLUMNS; j++) {
+//     row = row + '*';
+//   }
+//   console.log(row);
+//   // END
+
+// }
+
+// print all multiples of 20 from 0 to 100
+// i = 0 20 40 60 80 100
+// Zubair
+for (let i = 0; i <= 100; i = i + 20) {
+  console.log(i);
+}
+
+// i = 0  1  2  3  4  5
+// p = 0 20 40 60 80 100
+// Alex
+for (let i = 0; i <= 5; i++) {
+  console.log(i * 20);
+}
+
+// i = 0 1 2 3 4 5 6 7 8 9 10.. 100
+// p = 0                        20. ..... 40...
+// Yannick
+for (let i = 0; i <= 100; i++) {
+  let isDivisible = i % 20 === 0;
+  if (isDivisible) {
+    console.log(i);
+  }
+}
+
+let i = 0
+while (i <= 100) {
+  if (i % 20 === 0) {
+    console.log(i);
+  }
+  i++;
+}
+
+// print all multiples of 20 from 100 to 0
+// i = 100 80 60 40 20 0
+// Reverse Zubair
+for (let i = 100; i >= 0; i -= 20) {
+  console.log(i);
+}
