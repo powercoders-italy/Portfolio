@@ -198,7 +198,7 @@ for (let i = 0; i <= 100; i++) {
   }
 }
 
-let i = 0
+let i = 0;
 while (i <= 100) {
   if (i % 20 === 0) {
     console.log(i);
