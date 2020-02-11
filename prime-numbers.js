@@ -5,20 +5,22 @@
 
 function firstPrimeNumbers(NUM) {
   for (let num = 2; num <= NUM; num++) {
-    let isPrime = checkPrime(num);
-
-    if (isPrime) {
+    if (isPrime(num)) {
       console.log(num);
     }
   }
 }
 
-function checkPrime(num) {
+function isPrime(num) {
   let isPrime = true;
   for (let previous = 2; previous < num && isPrime; previous++) {
-    if (num % previous === 0) {
+    if (isDivisibleBy(num, previous)) {
       isPrime = false;
     }
   }
   return isPrime;
+}
+
+function isDivisibleBy(a, b) {
+  return a % b === 0
 }

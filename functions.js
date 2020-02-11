@@ -33,7 +33,8 @@
 // }
 
 function printSum(x, y) {
-  console.log(x + y);
+  // console.log(x + y);
+  x + y;
 }
 
 let x = 2;
