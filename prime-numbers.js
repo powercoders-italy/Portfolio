@@ -3,6 +3,8 @@
 // 2 3 4 5 6 7 8 9 10
 // 2 3 x 5 x 7 x x  x
 
+console.log(firstPrimeNumbers(10));
+
 function firstPrimeNumbers(NUM) {
   for (let num = 2; num <= NUM; num++) {
     if (isPrime(num)) {

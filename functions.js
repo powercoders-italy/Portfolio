@@ -1,3 +1,11 @@
+let pen = 'pen';
+let applePen = apple + pen;
+let apple = 'apple';
+
+var pen = 'pen';
+var applePen = apple + pen;
+var apple = 'apple';
+
 // alert('...')
 // confirm('...')
 // prompt('...')
@@ -46,6 +54,11 @@ function sum(x, y) {
   let theSum = x + y;
   return theSum;
 }
+
+// HOISTING
+
+// let hypothenuse = calculateHypothenuse(3, 4)
+// console.log(hypothenuse)
 
 function calculateHypothenuse(a, b) {
   let squareA = square(a);
@@ -133,27 +146,27 @@ Hint: use the switch statement.
 /* Second Attempt: */
 
 /* BEFORE: */
-let amonth = 1
+// let amonth = 1
 
-switch (amonth) {
-  case "Dull":
-    damage = 1
-    break
-  case "Cool":
-    damage = 5
-    break
-  case "Bravo":
-    damage = 10
-    break
-  case "Awesome":
-    damage = 15
-    break
-  case "Stylish":
-    damage = 20
-    break
-  default:
-    alert("not really");
-}
+// switch (amonth) {
+//   case "Dull":
+//     damage = 1
+//     break
+//   case "Cool":
+//     damage = 5
+//     break
+//   case "Bravo":
+//     damage = 10
+//     break
+//   case "Awesome":
+//     damage = 15
+//     break
+//   case "Stylish":
+//     damage = 20
+//     break
+//   default:
+//     alert("not really");
+// }
 
 /* END */
 
@@ -176,7 +189,7 @@ function getStylishRanking(amount) {
   return ranking
 }
 
-console.log(getStylishRanking(5))
+// console.log(getStylishRanking(5))
 /* END */
 
 /* Third attempt: */
@@ -226,4 +239,89 @@ function getStylishRanking(damage) {
     case 10:
       return "Bravo!"
   }
+}
+
+// GLOBAL NAMESPACE POLLUTION
+
+// IIFE - Immediately Invoked Function Expression
+
+(function () {
+  let a = 2;
+  alert(a);
+})()
+
+/* function expression */
+
+let sum = function (x, y) {
+  return x + y;
+}
+
+sum(2, 3);
+
+/* function declaration */
+function sum(x, y) {
+  return x + y;
+}
+
+/* callback functions */
+
+function ask(question, yes, no) {
+  if (confirm(question)) {
+    yes();
+  } else {
+    no();
+  }
+}
+
+ask('Do you like JavaScript?', yes, no);
+
+function yes() {
+  console.log('Very good!');
+}
+
+function no() {
+  console.log('Too bad...');
+}
+
+/* arrow functions */
+
+sum: (x, y) -> x + y
+
+function sum(x, y) {
+  return x + y;
+}
+
+let sum = function (x, y) { return x + y }
+
+
+let sum = (x, y) => x + y
+let square = x => x * x
+let shout = () => alert('YOOOP!')
+
+console.log(this);
+
+let sum = (x, y) => {
+  console.log(this);
+  return x + y;
+}
+
+sum(2, 3)
+
+
+function doSomething(theThing) {
+  return theThing();
+}
+
+let doSomething = function (theThing) {
+  return theThing();
+}
+
+let doSomething = (theThing) => {
+  return theThing();
+}
+
+let doSomething = theThing => theThing()
+
+function sum(a, b) {
+  return sum(a, b);
 }
