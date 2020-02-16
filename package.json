@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My personal portfolio.",
+  "main": "main.js",
+  "scripts": {
+    "pn": "node prime-numbers.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powercoders-italy/Portfolio.git"
+  },
+  "author": "Matteo Antony Mistretta <antony.mistretta@gmail.com> (https://www.ingloriouscoderz.it)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/powercoders-italy/Portfolio/issues"
+  },
+  "homepage": "https://github.com/powercoders-italy/Portfolio#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}

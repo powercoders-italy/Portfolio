@@ -10,26 +10,26 @@
 // 2. how to repeat the process?
 
 function buildRow(columns, symbol = '*') {
-  let row = '';
+  let row = ''
   for (let i = 0; i < columns; i++) {
-    row += symbol;
+    row += symbol
   }
-  return row;
+  return row
 }
 
 function buildButton(rows, columns, symbol = '*') {
-  let button = '';
+  let button = ''
   for (let i = 0; i < rows; i++) {
-    button += buildRow(columns, symbol) + '\n';
+    button += buildRow(columns, symbol) + '\n'
   }
-  return button;
+  return button
 }
 
 // let row = buildRow(5);
 // console.log(row);
 
-let button = buildButton(3, 5);
-console.log(button);
+let button = buildButton(3, 5)
+console.log(button)
 
 /*
 
@@ -46,15 +46,15 @@ console.log(button);
 //    1. the first and last rows are always 'full'
 //    2. all other rows in between are always 'empty'
 
-let line;
-for (line = ''; line.length < 7; line += '*') { }
-console.log(line);
+let line
+for (line = ''; line.length < 7; line += '*') {}
+console.log(line)
 
-let line = '';
+let line = ''
 while (line.length < 7) {
-  line += '+';
+  line += '+'
 }
-console.log(line);
+console.log(line)
 
 /*
 
@@ -66,3 +66,5 @@ buildTriangle(rows)
 * * * * * * *
 
 */
+
+let str = "Let's code together!"
