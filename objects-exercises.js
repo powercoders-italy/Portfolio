@@ -60,12 +60,12 @@ let menu = {
 }
 console.log(multiplyNumeric(menu))
 
-console.log(this)
-let that = this
-function sayHi() {
-  console.log(that)
-}
-const sayHi = () => console.log(this)
+// let that = this
+// console.log(that)
+// function sayHi() {
+//   console.log(that)
+// }
+// const sayHi = () => console.log(this)
 
 let teacher = {
   name: 'Antony',
@@ -77,3 +77,6 @@ let teacher = {
 let student = {
   name: 'Noor',
 }
+
+// borrowing a method from another object
+teacher.sayHi.bind(this)()
