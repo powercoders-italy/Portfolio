@@ -4,9 +4,11 @@
 const arr = [5, 8, 3, 4, 2]
 // index:  0  1  2  3  4
 
-function isEven(num) {
-  return num % 2 === 0
-}
+/**
+ * Support functions used below
+ */
+const isEven = num => num % 2 === 0
+const square = num => num * num
 
 /**
  * Print all items of an array
@@ -25,25 +27,25 @@ function printAll(arr) {
 }
 
 /**
- * Create a new array containing the same numbers, doubled
+ * All solutions below have the same basic structure:
+ *
+ * 1. Initialize some variable
+ * 2. Loop over the array items
+ *    1. Update that variable for some reason
+ * 3. Return the final value of that variable
  */
-function doubleAll(arr) {
-  const doubles = []
-  for (let item of arr) {
-    doubles.push(item * 2)
-  }
-  return doubles
-}
 
 /**
- * A more generic approach applies a callback function to every element
+ * Create a new array containing the same numbers, doubled
  */
-function applyToAll(arr, callback) {
-  const transformed = []
+function allDoubles(arr) {
+  let doubles = [] // initialize
+
   for (let item of arr) {
-    transformed.push(callback(item))
+    doubles.push(item * 2) // update
   }
-  return transformed
+
+  return doubles // return
 }
 
 /**
@@ -54,12 +56,24 @@ function hasEvenNumbers(arr) {
   for (let item of arr) {
     if (isEven(item)) {
       hasEven = true
+      break // not necessary, but faster
     }
   }
   return hasEven
 }
 
-/* A faster approach, maybe less readable */
+/* A more explicit approach */
+function hasEvenNumbers(arr) {
+  let hasEvenNumbers = false
+  for (let i = 0; !hasEvenNumbers && i < arr.length; i++) {
+    if (isEven(arr[i])) {
+      hasEvenNumbers = true
+    }
+  }
+  return hasEvenNumbers
+}
+
+/* Another approach that returns as soon as it knows the answer */
 function hasEvenNumbers(arr) {
   for (let item of arr) {
     if (isEven(item)) {
@@ -85,7 +99,7 @@ function areAllEven(arr) {
 /* A faster approach */
 function areAllEven(arr) {
   for (let item of arr) {
-    if (!isEven(arr)) {
+    if (!isEven(item)) {
       return false
     }
   }
@@ -93,10 +107,10 @@ function areAllEven(arr) {
 }
 
 /**
- * Return the first even number, or -1
+ * Return the first even number, or undefined
  */
 function findEven(arr) {
-  let even = -1
+  let even
   for (let item of arr) {
     if (isEven(item)) {
       even = item
@@ -113,7 +127,7 @@ function findEven(arr) {
       return item
     }
   }
-  return -1
+  // returns undefined by default
 }
 
 /**
@@ -127,17 +141,6 @@ function filterEvens(arr) {
     }
   }
   return evens
-}
-
-/* A more generic approach filters items based on some callback */
-function filter(arr, callback) {
-  const filtered = []
-  for (let item of arr) {
-    if (callback(item)) {
-      filtered.push(item)
-    }
-  }
-  return filtered
 }
 
 /**
@@ -164,10 +167,38 @@ function sumSquareOfEvens(arr) {
   return sum
 }
 
-/* A different approach, probably more readable */
+/**
+ * A more generic approach to the ones described above
+ * is applying to every element a callback function
+ * defined elsewhere
+ */
+function map(arr, callback) {
+  const mapped = []
+  for (let item of arr) {
+    mapped.push(callback(item))
+  }
+  return mapped
+}
+
+/**
+ * This approach can be used pretty much everywhere
+ */
+function filter(arr, callback) {
+  const filtered = []
+  for (let item of arr) {
+    if (callback(item)) {
+      filtered.push(item)
+    }
+  }
+  return filtered
+}
+
+/**
+ * Using the callback approach, we can write
+ * the last exercise like so: */
 function sumSquareOfEvens(arr) {
   let evens = filter(arr, isEven)
-  let squares = applyToAll(evens, num => num * num)
+  let squares = map(evens, square)
   let sum = sumAll(squares)
   return sum
 }

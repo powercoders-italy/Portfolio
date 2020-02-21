@@ -28,22 +28,3 @@ function showTodos() {
 }
 
 console.log(showTodos())
-
-let arr = [1, 2, 3, 4, 5]
-
-arr.forEach(item => console.log(item))
-console.log(arr.map(double))
-console.log(arr.filter(isEven))
-console.log(arr.some(isEven))
-console.log(arr.every(isEven))
-console.log(arr.find(isEven))
-console.log(arr.findIndex(isEven))
-console.log(arr.reduce((acc, item) => acc + item, 0))
-
-function double(num) {
-  return num * 2
-}
-
-function isEven(num) {
-  return num % 2 === 0
-}
