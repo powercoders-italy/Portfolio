@@ -9,22 +9,20 @@ let todos = [
   { id: 3, text: 'Forget everything' },
 ]
 
-function showTodos() {
-  // 1. loop over all the todos
-  // 2. for every todo:
-  //    1. create '<li>{todo.text}</li>'
-  //    2. concatenate to the html
-
-  let html = '<ul>'
-
-  // for (let todo of todos) {
-  //   html += '<li>' + todo.text + '</li>'
-  // }
-
-  html += todos.map(todo => `<li>${todo.text}</li>`).join('\n')
-
-  html += '</ul>'
-  return html
+function render() {
+  document.querySelector('ul').innerHTML = todos
+    .map(
+      todo => `<li ${todo.completed ? 'class="done"' : ''}>${todo.text}</li>`
+    )
+    .join('')
 }
 
-console.log(showTodos())
+render()
+
+document.querySelector('form').onsubmit = function(event) {
+  event.preventDefault()
+
+  let todo = { id: 4, text: 'Eat your vegetables' }
+  todos.push(todo)
+  render()
+}

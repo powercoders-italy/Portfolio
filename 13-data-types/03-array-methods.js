@@ -16,9 +16,28 @@ console.log(arr.find(isEven))
 console.log(arr.findIndex(isEven))
 console.log(arr.reduce(sum, 0))
 
+let doubles = arr.reduce((acc, item) => {
+  acc.push(double(item))
+  return acc
+}, [])
+
+let hasEvens = arr.reduce((acc, item) => {
+  if (isEven(item)) {
+    acc = true
+  }
+  return acc
+}, false)
+
 console.log(
   arr
     .filter(isEven)
     .map(square)
     .reduce(sum, 0)
 )
+
+arr.reduce((acc, item) => {
+  if (isEven(item)) {
+    acc += square(item)
+  }
+  return acc
+}, 0)
