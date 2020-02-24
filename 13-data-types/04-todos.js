@@ -12,7 +12,11 @@ let todos = [
 function render() {
   document.querySelector('ul').innerHTML = todos
     .map(
-      todo => `<li ${todo.completed ? 'class="done"' : ''}>${todo.text}</li>`
+      (todo, index) => `
+      <li ${todo.completed ? 'class="done"' : ''}>
+        <button onclick="handleRemove(${index})">x</button>
+        <span onclick="handleToggle(${index})">${todo.text}</span>
+      </li>`
     )
     .join('')
 }
@@ -28,6 +32,16 @@ document.querySelector('form').onsubmit = function(event) {
   todos.push({ id, text })
 
   document.querySelector('input').value = ''
+  render()
+}
+
+function handleRemove(index) {
+  todos.splice(index, 1)
+  render()
+}
+
+function handleToggle(index) {
+  todos[index].completed = !todos[index].completed
   render()
 }
 
