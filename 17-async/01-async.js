@@ -4,6 +4,7 @@ console.log('Hello world!')
 
 // clearInterval(id)
 
+// callback hell
 $.get(
   'https://swapi.co/api/people/',
   function success(response) {
@@ -25,18 +26,13 @@ $.get(
   }
 )
 
-let promise1 = $.get('https://swapi.co/api/people/')
 // thenable object
-promise1.then(function success(response) {
-  let id = response.data[0].id
-  let promise2 = $.get(`https://swapi.co/api/people/${id}`)
-  promise2.then(function success(response) {
-    console.log(response.data)
+$.get('https://swapi.co/api/people/')
+  // resolve
+  .then(response => {
+    let id = response.data.results[0].id
+    return $.get(`https://swapi.co/api/people/${id}`)
   })
-  promise2.catch(function failure(error) {
-    console.error(error)
-  })
-})
-promise1.catch(function failure(error) {
-  console.error(error)
-})
+  .then(response => console.log(response.data))
+  // reject
+  .catch(error => console.error(error))
