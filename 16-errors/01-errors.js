@@ -42,3 +42,16 @@ function sum(a, b) {
 
   return a + b
 }
+
+function f() {
+  try {
+    do something
+    return 42
+  } catch (err) {
+    handle err
+  } finally {
+    cleanup code
+  }
+}
+
+let answer = f()

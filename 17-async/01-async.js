@@ -13,21 +13,20 @@ clearInterval(id)
  */
 $.get(
   'https://swapi.co/api/people/',
-  function success(response) {
-    let id = response.data.results[0].id
+  function success(data1) {
     $.get(
-      `https://swapi.co/api/people/${id}`,
-      function success(response) {
+      data1.results[0].url,
+      function success(data2) {
         // this is the last statement that will be executed
-        console.log(response.data)
+        console.log(data2)
       },
-      function failure(error) {
-        console.log(error.message)
+      function failure(error2) {
+        console.log(error2.message)
       }
     )
   },
-  function failure(error) {
-    console.log(error.message)
+  function failure(error1) {
+    console.log(error1.message)
   }
 )
 
@@ -36,12 +35,20 @@ $.get(
 /**
  * A promise is a "thenable" object
  */
+
 $.get('https://swapi.co/api/people/')
   // it can resolve
-  .then(response => {
-    let id = response.data.results[0].id
-    return $.get(`https://swapi.co/api/people/${id}`)
-  })
-  .then(response => console.log(response.data))
+  .then(data1 => $.get(data1.results[0].url))
+  .then(data2 => console.log(data2))
   // it can reject
   .catch(error => console.error(error))
+  .finally(() => console.warn('Cleanup'))
+
+/**
+ * Fetch API
+ */
+fetch('https://swapi.co/api/people/')
+  .then(response1 => response1.json())
+  .then(body1 => fetch(body1.results[0].url))
+  .then(response2 => response2.json())
+  .then(body2 => console.log(body2))
